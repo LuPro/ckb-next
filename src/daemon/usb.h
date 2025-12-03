@@ -323,7 +323,7 @@ const char* product_str(ushort product);
 #define USES_BRAGI_LARGE(vendor, product)           ((vendor) == (V_CORSAIR) && ((product) == P_SCIMITAR_ELITE_BRAGI))
 
 // Used for devices that have the scroll wheel packet in the hardware hid packet only
-#define SW_PKT_HAS_NO_WHEEL(kb)                     ((kb)->vendor == V_CORSAIR && ((kb)->product == P_M55_RGB_PRO || (kb)->product == P_KATAR_PRO_XT || (kb)->product == P_KATAR_PRO || (kb)->product == P_SCIMITAR_ELITE_BRAGI || (kb)->product == P_M75))
+#define SW_PKT_HAS_NO_WHEEL(kb)                     ((kb)->vendor == V_CORSAIR && ((kb)->product == P_M55_RGB_PRO || (kb)->product == P_KATAR_PRO_XT || (kb)->product == P_KATAR_PRO || (kb)->product == P_SCIMITAR_ELITE_BRAGI || (kb)->product == P_M75_WL_U))
 
 // For devices that have the new short HID report (6 bytes)
 #define USES_BRAGI_SHORT_REPORT(kb)                 ((kb)->vendor == (V_CORSAIR) && ((kb)->product == P_SCIMITAR_ELITE_BRAGI))
