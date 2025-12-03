@@ -336,8 +336,9 @@ static const Key M75Keys[] = {
     {nullptr,  "Back",             "mouse4",    8, 25,  4,  8, false, true},
     {nullptr,  "Forward (R)",      "mouse6",   40, 18,  4,  8, false, true},
     {nullptr,  "Back (R)",         "mouse7",   40, 25,  4,  8, false, true},
+    {nullptr,  "DPI Cycle",        "dpiup",    21, 55, 10,  8, false, true},
     {nullptr,  "Logo",             "front",    20, 40, 12, 12, true,  false},
-    {nullptr,  "Underglow",        "back",     19, 52, 14, 6, true,  false}
+    {nullptr,  "Underglow",        "back",     19, 52, 14,  6, true,  false}
 };
 #define KEYCOUNT_M75    (sizeof(M75Keys) / sizeof(Key))
 

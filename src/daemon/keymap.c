@@ -1277,7 +1277,7 @@ const unsigned char m75_wl_lut[BRAGI_MOUSE_BUTTONS] = {
     0x03,  // bit 4 - mouse5 (left side forward)
     0x1B,  // bit 5 - mouse6 (right side upper button) - index 27
     0x1C,  // bit 6 - mouse7 (right side lower button) - index 28
-    0x08,  // bit 7 - DPI
+    0x05,  // bit 7 - DPI button (cycles through DPI stages)
     0x09,  // bit 8
     0x05,  // bit 9
     0x0A,  // bit 10
