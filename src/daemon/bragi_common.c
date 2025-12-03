@@ -208,6 +208,8 @@ static inline char* bragi_wl_string(usbdevice* kb){
         return "CORSAIR IRONCLAW RGB WIRELESS Gaming Mouse";
     case P_HARPOON_WL_U:
         return "CORSAIR HARPOON RGB WIRELESS Gaming Mouse";
+    case P_M75_WL_U:
+        return "CORSAIR M75 WIRELESS Gaming Mouse";
     case P_DARK_CORE_RGB_PRO:
         return "CORSAIR DARK CORE RGB PRO Gaming Mouse";
     case P_DARK_CORE_RGB_PRO_SE:

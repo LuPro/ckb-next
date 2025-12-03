@@ -41,6 +41,7 @@ const dpi_list mouse_dpi_list[] = {
     { P_DARK_CORE_RGB_PRO_SE, 18000 },
     { P_GLAIVE_PRO, 16000 },
     { P_SCIMITAR_ELITE_BRAGI, 18000 },
+    { P_M75_WL_U, 26000 },
     { 0, 0 }, // Keep last and do not remove
 };
 
@@ -132,6 +133,8 @@ const device_desc models[] = {
     { V_CORSAIR, P_IRONCLAW_W_D, },
     { V_CORSAIR, P_HARPOON_WL_U, },
     { V_CORSAIR, P_HARPOON_WL_D, },
+    { V_CORSAIR, P_M75_WL_U, },
+    { V_CORSAIR, P_M75_WL_D, },
     { V_CORSAIR, P_GLAIVE_PRO, },
     { V_CORSAIR, P_SCIMITAR_ELITE_BRAGI, },
     // Mousepads
@@ -277,6 +280,8 @@ const char* product_str(ushort product){
         return "nightsword";
     if(product == P_IRONCLAW_W_U || product == P_IRONCLAW_W_D || product == P_HARPOON_WL_U || product == P_HARPOON_WL_D)
         return "ironclaw_wireless";
+    if(product == P_M75_WL_U || product == P_M75_WL_D)
+        return "m75_wireless";
     if(product == P_DARK_CORE_RGB_PRO || product == P_DARK_CORE_RGB_PRO_WL || product == P_DARK_CORE_RGB_PRO_SE || product == P_DARK_CORE_RGB_PRO_SE_WL)
         return "dark_core_rgb_pro";
     if(product == P_POLARIS)

@@ -9,7 +9,7 @@ void bragi_fill_input_eps(usbdevice* kb)
     // HACK: Harpoon WL has EPs starting from 0x82
     // Ideally, we'd read them from the OS and make sure they are valid instead of guessing
     int offset = 1;
-    if(IS_HARPOON_WL(kb))
+    if(IS_HARPOON_WL(kb) || IS_M75_WL(kb))
         offset = 2;
     else if(IS_MM700(kb))
         offset = 4;

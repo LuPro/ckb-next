@@ -27,6 +27,7 @@ static inline size_t bragi_led_count(usbdevice* kb){
     switch(kb->product){
     LED_CASE_M(P_IRONCLAW_W_U, 6);
     LED_CASE_M(P_HARPOON_WL_U, 2);
+    LED_CASE_M(P_M75_WL_U, 3);
     LED_CASE_K(P_K95_PLATINUM_XT, 156);
     LED_CASE_K(P_K57_U, 137);
     LED_CASE_K(P_K60_PRO_RGB, 123);
