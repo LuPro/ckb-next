@@ -764,7 +764,9 @@ void process_input_urb(void* context, unsigned char* buffer, int urblen, ushort 
     usbdevice* kb = context;
 
 #ifdef DEBUG_USB_INPUT
-    print_urb_buffer("Input:", buffer, urblen, NULL, 0, NULL, INDEX_OF(kb, keyboard), (uchar)ep);
+    // Skip logging movement packets (EP 82) and status packets (EP 84) to reduce spam
+    if(ep != 0x82 && ep != 0x84)
+        print_urb_buffer("Input:", buffer, urblen, NULL, 0, NULL, INDEX_OF(kb, keyboard), (uchar)ep);
 #endif
 
     // Get first byte of the response
@@ -1264,6 +1266,28 @@ const unsigned char m55_wl_lut[BRAGI_ONE_BYTE_MOUSE_BUTTONS] = {
     0x08, //dpi up?
 };
 
+// M75 Wireless - ambidextrous mouse with buttons on both sides
+// Left side buttons use bits 3,4 (back/forward)
+// Right side buttons use bits 5,6 which we map to mouse6/mouse7
+const unsigned char m75_wl_lut[BRAGI_MOUSE_BUTTONS] = {
+    0x00,  // bit 0 - mouse1 (left click)
+    0x01,  // bit 1 - mouse2 (right click)
+    0x02,  // bit 2 - mouse3 (middle click)
+    0x04,  // bit 3 - mouse4 (left side back)
+    0x03,  // bit 4 - mouse5 (left side forward)
+    0x1B,  // bit 5 - mouse6 (right side upper button) - index 27
+    0x1C,  // bit 6 - mouse7 (right side lower button) - index 28
+    0x08,  // bit 7 - DPI
+    0x09,  // bit 8
+    0x05,  // bit 9
+    0x0A,  // bit 10
+    0x0B,  // bit 11
+    0x0C,  // bit 12
+    0x0D,  // bit 13
+    0x0E,  // bit 14
+    0x0F,  // bit 15
+};
+
 
 const unsigned char scimitar_bragi_lut[BRAGI_THREE_BYTE_MOUSE_BUTTONS] = {
     0x00,
@@ -1295,9 +1319,13 @@ void corsair_bragi_mousecopy(usbdevice* kb, usbinput* input, const unsigned char
     // Pick the appropriate LUT. We can't patch the keymap as that will break standard HID input.
     const unsigned char* lut = corsair_bragi_lut;
 
+    // M75 Wireless needs custom LUT for ambidextrous button mapping
+    if(kb->vendor == V_CORSAIR && kb->product == P_M75_WL_U) {
+        lut = m75_wl_lut;
+    }
     // Some devices only have one byte, so set those to 8 buttons. Others have three.
     // We need a better way to identify this
-    if(kb->vendor == V_CORSAIR && (kb->product == P_M55_RGB_PRO || kb->product == P_DARK_CORE_RGB_PRO_SE || kb->product == P_DARK_CORE_RGB_PRO_SE_WL || kb->product == P_HARPOON_WL_U || kb->product == P_DARK_CORE_RGB_PRO || kb->product == P_DARK_CORE_RGB_PRO_WL)) {
+    else if(kb->vendor == V_CORSAIR && (kb->product == P_M55_RGB_PRO || kb->product == P_DARK_CORE_RGB_PRO_SE || kb->product == P_DARK_CORE_RGB_PRO_SE_WL || kb->product == P_HARPOON_WL_U || kb->product == P_DARK_CORE_RGB_PRO || kb->product == P_DARK_CORE_RGB_PRO_WL)) {
         buttons = BRAGI_ONE_BYTE_MOUSE_BUTTONS;
         if(kb->vendor == V_CORSAIR && kb->product == P_HARPOON_WL_U)
             lut = harpoon_wl_lut;

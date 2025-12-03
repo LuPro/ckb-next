@@ -155,6 +155,10 @@ void KeyWidget::map(const KeyMap& newMap){
             _currentOverlay.load(":/img/overlay_harpoon.png");
             _overlayPos.setX(4.3f);
             break;
+        case KeyMap::M75_WL:
+            _currentOverlay.load(":/img/overlay_harpoon.png");
+            _overlayPos.setX(4.3f);
+            break;
         case KeyMap::GLAIVE:
             _currentOverlay.load(":/img/overlay_glaive.png");
             _overlayPos.setX(3.5f);
