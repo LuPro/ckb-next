@@ -138,7 +138,7 @@ void KeyWidget::map(const KeyMap& newMap){
             _currentOverlay.load(":/img/overlay_m65.png");
             _overlayPos.setX(2.f);
             break;
-        case KeyMap::M75_WL:
+        case KeyMap::M75:
             _currentOverlay.load(":/img/overlay_m75.png");
             _overlayPos.setX(9.2f);
             _overlayPos.setY(-1.9f);
@@ -541,7 +541,7 @@ void KeyWidget::paintGL(){
             // Strafe side lights (toggle lights with no animation)
             if(!strcmp(key.name, "lsidel") || !strcmp(key.name, "rsidel")) {
                 drawStrafeSidelights(&key, &painter, keyColor, color, bgColor);
-            } else if (model == KeyMap::M75_WL) {
+            } else if (model == KeyMap::M75) {
                 if (!strcmp(key.name, "front")) {
                     drawLogo(&key, &painter);
                 } else {

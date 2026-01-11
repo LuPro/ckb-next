@@ -1291,7 +1291,7 @@ static QHash<QString, Key> getMap(KeyMap::Model model, KeyMap::Layout layout){
         // Mice also have no layout patches - no other changes necessary
         break;
     }
-    case KeyMap::M75_WL:{
+    case KeyMap::M75:{
         // M75 isn't a keyboard; all mouse maps are unique. for now well use the M65 layout
         for(const Key* key = M75Keys; key < M75Keys + KEYCOUNT_M75; key++){
             // Keyboard keys are written from the center because that's where the LEDs are, but the mouse buttons are odd shapes so they're
@@ -1739,7 +1739,7 @@ KeyMap::Model KeyMap::getModel(const QString& name){
     if(lower == "ironclaw_wireless")
         return IRONCLAW_W;
     if(lower == "m75_wireless")
-        return M75_WL;
+        return M75;
     if(lower == "k95l")
         return K95L;
     if(lower == "glaivepro")
@@ -1831,7 +1831,7 @@ QString KeyMap::getModel(KeyMap::Model model){
         return "nightsword";
     case IRONCLAW_W:
         return "ironclaw_wireless";
-    case M75_WL:
+    case M75:
         return "m75_wireless";
     case K95L:
         return "k95l";
@@ -1917,7 +1917,7 @@ int KeyMap::modelWidth(Model model){
     case GLAIVEPRO:
     case IRONCLAW_W:
         return M65_WIDTH;
-    case M75_WL:
+    case M75:
         return M75_WIDTH;
     case MM700:
         return MM700_WIDTH;
@@ -1976,7 +1976,7 @@ int KeyMap::modelHeight(Model model){
         return M65_HEIGHT;
     case IRONCLAW_W:
         return M65_HEIGHT;
-    case M75_WL:
+    case M75:
         return M75_HEIGHT;
     case MM700:
         return MM700_HEIGHT;
