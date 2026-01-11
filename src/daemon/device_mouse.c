@@ -107,7 +107,7 @@ int cmd_pollrate(usbdevice* kb, pollrate_t rate){
 
 void nxp_mouse_setfps(usbdevice* kb, int fps){
     // Assumes 2 packets at most
-    if(IS_M75(kb)){
+    if(IS_M75_WL(kb)){
         // M75 needs a longer delay to prevent communication issues
         kb->usbdelay_ns = 20000000L;  // 20ms delay for M75
     } else if(fps > 35){

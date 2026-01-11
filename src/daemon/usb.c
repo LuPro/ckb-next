@@ -132,7 +132,6 @@ const device_desc models[] = {
     { V_CORSAIR, P_HARPOON_WL_U, },
     { V_CORSAIR, P_HARPOON_WL_D, },
     { V_CORSAIR, P_M75_WL_U, },
-    { V_CORSAIR, P_M75_WL_D, },
     { V_CORSAIR, P_GLAIVE_PRO, },
     { V_CORSAIR, P_SCIMITAR_ELITE_BRAGI, },
     // Mousepads
@@ -142,6 +141,7 @@ const device_desc models[] = {
     { V_CORSAIR, P_ST100, },
     // Misc
     { V_CORSAIR, P_GENERIC_BRAGI_DONGLE, },
+    { V_CORSAIR, P_GENERIC_SLIPSTREAM_DONGLE, },
 };
 
 const size_t N_MODELS = sizeof(models) / sizeof(device_desc);
@@ -276,7 +276,7 @@ const char* product_str(ushort product){
         return "nightsword";
     if(product == P_IRONCLAW_W_U || product == P_IRONCLAW_W_D || product == P_HARPOON_WL_U || product == P_HARPOON_WL_D)
         return "ironclaw_wireless";
-    if(product == P_M75_WL_U || product == P_M75_WL_D)
+    if(product == P_M75_WL_U)
         return "m75_wireless";
     if(product == P_DARK_CORE_RGB_PRO || product == P_DARK_CORE_RGB_PRO_WL || product == P_DARK_CORE_RGB_PRO_SE || product == P_DARK_CORE_RGB_PRO_SE_WL)
         return "dark_core_rgb_pro";
@@ -286,6 +286,8 @@ const char* product_str(ushort product){
         return "darkcore";
     if(product == P_ST100)
         return "st100";
+    if(product == P_GENERIC_SLIPSTREAM_DONGLE)
+        return "slipstream_dongle";
     if(product == P_GENERIC_BRAGI_DONGLE)
         return "bragi_dongle";
     if(product == P_MM700)
