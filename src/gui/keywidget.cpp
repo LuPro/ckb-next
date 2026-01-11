@@ -138,7 +138,7 @@ void KeyWidget::map(const KeyMap& newMap){
             _currentOverlay.load(":/img/overlay_m65.png");
             _overlayPos.setX(2.f);
             break;
-        case KeyMap::M75:
+        case KeyMap::M75_WL:
             _currentOverlay.load(":/img/overlay_m75.png");
             _overlayPos.setX(9.2f);
             _overlayPos.setY(-1.9f);
@@ -152,10 +152,6 @@ void KeyWidget::map(const KeyMap& newMap){
             _overlayPos.setX(10.3f);
             break;
         case KeyMap::HARPOON:
-            _currentOverlay.load(":/img/overlay_harpoon.png");
-            _overlayPos.setX(4.3f);
-            break;
-        case KeyMap::M75_WL:
             _currentOverlay.load(":/img/overlay_harpoon.png");
             _overlayPos.setX(4.3f);
             break;
@@ -545,7 +541,7 @@ void KeyWidget::paintGL(){
             // Strafe side lights (toggle lights with no animation)
             if(!strcmp(key.name, "lsidel") || !strcmp(key.name, "rsidel")) {
                 drawStrafeSidelights(&key, &painter, keyColor, color, bgColor);
-            } else if (model == KeyMap::M75) {
+            } else if (model == KeyMap::M75_WL) {
                 if (!strcmp(key.name, "front")) {
                     drawLogo(&key, &painter);
                 } else {
