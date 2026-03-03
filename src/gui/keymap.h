@@ -95,6 +95,7 @@ public:
         K70_PRO,
         K70_CORE_RGB,
         M75,
+        SLIPSTREAM_DONGLE,
         _MODEL_MAX
     };
     // Key layouts (ordered alphabetically by name)
